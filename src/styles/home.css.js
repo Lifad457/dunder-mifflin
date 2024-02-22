@@ -1,15 +1,24 @@
 import styled from "styled-components";
+import heroBG from "../assets/images/hero-bg.png";
 
 export const HomeContainer = styled.div`
     max-width: 1400px;
+    min-width: 40rem;
+    padding: 0 4rem;
     margin: 0 auto;
 `
-export const HeroImage = styled.div`
+export const HeroContainer = styled.div`
     display: flex;
-    gap: 4rem;
-    padding: 4rem;
-    color: var(--color-black);
     justify-content: center;
+    gap: 4rem;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+    color: var(--color-black);
+    
+    @media (max-width: 980px) {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
 `
 export const LeftColumn = styled.div`
     display: block;
@@ -29,10 +38,13 @@ export const LeftColumn = styled.div`
     }
 `
 export const RightColumn = styled.div`
-    img {
-        width: 400px;
-        margin-top: 1rem;
-    }
+    display: block;
+    margin: auto 0;
+`
+export const HeroImage = styled.img`
+    height: auto;
+    background: url(${heroBG}) no-repeat bottom center;
+    background-size: contain;
 `
 export const HeroButton = styled.button`
     display: inline-block;
@@ -48,4 +60,23 @@ export const HeroButton = styled.button`
 
     cursor: pointer;
     margin-top: 2rem;
+`
+export const BestSellers = styled.div`
+    display: flex;
+    flex-direction: column;
+    min-width: 30rem;
+    padding: 2rem 4rem;
+    border-bottom: 1px solid var(--color-grey);
+    background-color: var(--color-white);
+    border-radius: .2rem;
+    box-shadow: 0 10px 20px 5px rgba(0,0,0,.1);
+
+    h1 {
+        font-size: var(--fs-medium);
+        font-weight: var(--fw-bold);
+    }
+        
+    @media (max-width: 768px) {
+        margin: 0 auto;
+    }
 `

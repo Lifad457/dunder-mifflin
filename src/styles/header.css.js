@@ -6,6 +6,10 @@ export const HeaderContainer = styled.header`
     justify-content: space-between;
     align-items: center;
     padding: 1rem 4rem;
+
+    @media (max-width: 768px) {
+        display: none;
+    }
 `
 export const HeaderLogo = styled(logo)`
     width: 7rem;

@@ -10,11 +10,11 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     &:root {
-        --color-one: #177C8B;
-        --color-two: #084A62;
-        --color-three: #ff4d30;
-        --color-four: #FFCA5A;
-        --color-five: #333031;
+        --color-one: #FAFAFA;
+        --color-two: #CACACA;
+        --color-three: #FF4D30;
+        --color-four: #2D2D2D;
+        --color-five: #D5D5D5;
         --color-black: #000;
         --color-white: #fff;
 
@@ -36,5 +36,6 @@ export const GlobalStyle = createGlobalStyle`
     body {
         font-family: var(--font-primary);
         line-height: 1.6;
+        background-color: var(--color-one);
     }
 `

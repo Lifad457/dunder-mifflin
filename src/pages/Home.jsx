@@ -1,7 +1,9 @@
 import Header from '../components/Header'
-import { HeroButton, HeroImage, HomeContainer, LeftColumn, RightColumn } from '../styles/home.css'
+import { BestSellers, HeroButton, HeroContainer, HeroImage, HomeContainer, LeftColumn, RightColumn } from '../styles/home.css'
 import { GlobalStyle } from '../styles/global.css'
 import heroImg from '../assets/images/hero-img.png'
+import Card from '../components/Card'
+import { CardContainer } from '../styles/card.css'
 
 function Home() {
 
@@ -10,7 +12,7 @@ function Home() {
       <GlobalStyle />
       <HomeContainer>
         <Header />
-        <HeroImage>
+        <HeroContainer>
           <LeftColumn>
             <h2>Dunder Mifflin :</h2>
             <h1>Where <span>Every</span> Sheet</h1>
@@ -18,31 +20,20 @@ function Home() {
             <HeroButton>Shop Now</HeroButton>
           </LeftColumn>
           <RightColumn>
-            <img src={heroImg} alt="hero" />
+            <HeroImage src={heroImg} alt="hero" />
           </RightColumn>
-        </HeroImage>
-        <h1>App</h1>
-        <h1>App</h1>
-        <h1>App</h1>
-        <h1>App</h1>
-        <h1>App</h1>
-        <h1>App</h1>
-        <h1>App</h1>
-        <h1>App</h1>
-        <h1>App</h1>
-        <h1>App</h1>
-        <h1>App</h1>
-        <h1>App</h1>
-        <h1>App</h1>
-        <h1>App</h1>
-        <h1>App</h1>
-        <h1>App</h1>
-        <h1>App</h1>
-        <h1>App</h1>
-        <h1>App</h1>
-        <h1>App</h1>
-        <h1>App</h1>
-        <h1>App</h1>
+        </HeroContainer>
+        <BestSellers>
+          <h1>Best Sellers</h1>
+          <CardContainer>
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+          </CardContainer>
+        </BestSellers>
       </HomeContainer>
     </>
   )
