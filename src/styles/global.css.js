@@ -37,5 +37,7 @@ export const GlobalStyle = createGlobalStyle`
         font-family: var(--font-primary);
         line-height: 1.6;
         background-color: var(--color-one);
+        min-width: 40rem;
+        margin: 0 auto;
     }
 `

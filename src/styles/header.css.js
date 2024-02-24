@@ -5,9 +5,11 @@ export const HeaderContainer = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 4rem;
-
-    @media (max-width: 768px) {
+    margin-top: 1rem;
+    max-width: 90rem;
+    margin: 0 auto;
+    
+    @media (max-width: 980px) {
         display: none;
     }
 `

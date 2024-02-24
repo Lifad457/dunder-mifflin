@@ -1,12 +1,6 @@
 import styled from "styled-components";
 import heroBG from "../assets/images/hero-bg.png";
 
-export const HomeContainer = styled.div`
-    max-width: 1400px;
-    min-width: 40rem;
-    padding: 0 4rem;
-    margin: 0 auto;
-`
 export const HeroContainer = styled.div`
     display: flex;
     justify-content: center;
@@ -14,6 +8,8 @@ export const HeroContainer = styled.div`
     padding-top: 8rem;
     padding-bottom: 8rem;
     color: var(--color-black);
+    max-width: 90rem;
+    margin: 0 auto;
     
     @media (max-width: 980px) {
         flex-direction: column-reverse;
@@ -70,6 +66,8 @@ export const BestSellers = styled.div`
     background-color: var(--color-white);
     border-radius: .2rem;
     box-shadow: 0 10px 20px 5px rgba(0,0,0,.1);
+    max-width: 90rem;
+    margin: 0 auto;
 
     h1 {
         font-size: var(--fs-medium);
