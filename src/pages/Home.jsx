@@ -1,4 +1,4 @@
-import { BestSellers, HeroButton, HeroContainer, HeroImage, LeftColumn, RightColumn } from '../styles/home.css'
+import { BestSellers, HeroButton, HeroContainer, HeroImage, LeftColumn, RightColumn, Wrapper } from '../styles/home.css'
 import { GlobalStyle } from '../styles/global.css'
 import heroImg from '../assets/images/hero-img.png'
 import Card from '../components/Card'
@@ -9,6 +9,7 @@ function Home() {
   return (
     <>
       <GlobalStyle />
+      <Wrapper>
       <HeroContainer>
         <LeftColumn>
           <h2>Dunder Mifflin :</h2>
@@ -30,6 +31,7 @@ function Home() {
           <Card />
         </CardContainer>
       </BestSellers>
+      </Wrapper>
     </>
   )
 }

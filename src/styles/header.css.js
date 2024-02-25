@@ -8,6 +8,7 @@ export const HeaderContainer = styled.header`
     margin-top: 1rem;
     max-width: 90rem;
     margin: 0 auto;
+    padding: 1rem 4rem;
     
     @media (max-width: 980px) {
         display: none;
