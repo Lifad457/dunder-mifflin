@@ -4,7 +4,7 @@ export default function Footer() {
     return (
         <FooterContainer>
             <section>
-                <p>Scranton Business Park</p>
+                <h1>Scranton Business Park</h1>
                 <p>Dunder Mifflin Paper Co.</p>
                 <p>1725 Slough Ave Suit 200</p>
                 <p>Scranton PA, 18505</p>
@@ -12,16 +12,18 @@ export default function Footer() {
                 <p>dundermifflin@fake.com</p>
             </section>
             <section>
-                <p>WORKING HOURS</p>
+                <h1>Working Hours</h1>
                 <p>Mon - Fri: 9:00AM - 5:00PM</p>
                 <p>Sat: Closed</p>
                 <p>Sun: Closed</p>
             </section>
             <section>
-                <p>SUBSCRIPTION</p>
+                <h1>Subscription</h1>
                 <p>Subscribe your Email address<br/>for latest news & updates.</p>
-                <input type="email" />
-                <button>Subscribe</button>
+                <form action="">
+                    <input type="email" placeholder="Enter your Email Adress" />
+                    <button>Subscribe</button>
+                </form>
             </section>
         </FooterContainer>
     )
