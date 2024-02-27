@@ -3,14 +3,21 @@ import ReactDOM from 'react-dom/client'
 import Home from './pages/Home.jsx'
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
 import Layout from './components/Layout.jsx'
+import Products from './pages/Products.jsx'
+import Contact from './pages/Contact.jsx'
+import OurTeam from './pages/OurTeam.jsx'
+import Testimonials from './pages/Testimonials.jsx'
+import ErrorPage from './pages/ErrorPage.jsx'
 
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path='/' element={<Layout />} >
     <Route index element={<Home />} />
-
-
+    <Route path='products' element={<Products />} />
+    <Route path='contact' element={<Contact />} />
+    <Route path='our-team' element={<OurTeam />} />
+    <Route path='testimonials' element={<Testimonials />} />
     
-    {/* <Route path="*" element={<ErrorPage />} /> */}
+    <Route path="*" element={<ErrorPage />} />
   </Route>
 ))
 

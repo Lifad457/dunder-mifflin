@@ -46,8 +46,8 @@ function Home() {
             <p>At Dunder Mifflin, we believe in going above and beyond for our customers. Say goodbye to generic service and hello to a personalized experience tailored just for you! Our dedicated sales representatives, like the dynamic duo of Dwight Schrute and Jim Halpert, are here to ensure your needs are not just met, but exceeded. With us, you're not just a number – you're part of the Dunder Mifflin family!</p>
           </ChooseUsWrapper>
           <ChooseUsWrapper>
-            <h1>Competitive Pricing:</h1>
-            <p>Quality doesn't have to break the bank, and at Dunder Mifflin, we prove it every day. Our competitive pricing ensures you get the best value for your money without sacrificing quality. Plus, with special discounts for bulk orders and loyal customers, saving money has never been easier. Why settle for less when you can have the best with Dunder Mifflin?</p>
+            <h1>Wide Range of Products:</h1>
+            <p>Need paper? We've got you covered! From standard printer paper to specialty products, Dunder Mifflin is your one-stop shop for all things paper and office supplies. No matter the size or scope of your order, we have the variety you need to keep your business running smoothly. Efficiency and convenience are our middle names!</p>
           </ChooseUsWrapper>
           <ChooseUsWrapper>
             <h1>Competitive Pricing:</h1>
