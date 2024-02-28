@@ -6,6 +6,11 @@ export const ChooseUsContainer = styled.div`
     gap: 2rem;
     align-items: center;
     margin: 5rem 0;
+
+    @media (max-width: 980px) {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
 `
 export const ChooseUsLeftCol = styled.div`
     padding: 2rem;

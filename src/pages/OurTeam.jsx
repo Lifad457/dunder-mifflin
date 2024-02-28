@@ -1,7 +1,13 @@
+import { GlobalStyle } from "../styles/global.css";
+import { Wrapper } from "../styles/wrapper.css";
+
 export default function OurTeam() {
     return (
-        <div>
-            <h1>Our Team</h1>
-        </div>
+        <>
+            <GlobalStyle />
+            <Wrapper>
+                <h1>Our Team</h1>
+            </Wrapper>
+        </>
     )
 }

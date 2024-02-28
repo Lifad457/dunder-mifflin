@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Account, AccountButton, HeaderContainer, HeaderLogo, Nav } from "../styles/header.css";
 import { RiShoppingCart2Line } from "react-icons/ri";
 
@@ -7,11 +8,11 @@ export default function Header() {
             <HeaderLogo />
             <Nav>
                 <ul>
-                    <li><a to="#">Home</a></li>
-                    <li><a to="#">Products</a></li>
-                    <li><a to="#">Testimonials</a></li>
-                    <li><a to="#">Our Team</a></li>
-                    <li><a to="#">Contact</a></li>
+                    <li><Link to="">Home</Link></li>
+                    <li><Link to="products">Products</Link></li>
+                    <li><Link to="testimonials">Testimonials</Link></li>
+                    <li><Link to="our-team">Our Team</Link></li>
+                    <li><Link to="contact">Contact</Link></li>
                 </ul>
             </Nav>
             <Account>

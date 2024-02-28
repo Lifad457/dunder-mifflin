@@ -1,7 +1,13 @@
+import { GlobalStyle } from "../styles/global.css";
+import { Wrapper } from "../styles/wrapper.css";
+
 export default function Testimonials() {
     return (
-        <div>
-            <h1>Testimonials</h1>
-        </div>
+        <>
+            <GlobalStyle />
+            <Wrapper>
+                <h1>Testimonials</h1>
+            </Wrapper>
+        </>
     )
 }

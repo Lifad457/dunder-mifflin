@@ -5,6 +5,7 @@ export const CardContainer = styled.div`
     grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
     gap: 3rem;
     padding: 2rem 0;
+    margin: 0 4rem;
 `
 export const CardWrapper = styled.div`
     display: flex;

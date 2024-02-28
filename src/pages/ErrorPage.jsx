@@ -1,7 +1,13 @@
+import { GlobalStyle } from "../styles/global.css";
+import { Wrapper } from "../styles/wrapper.css";
+
 export default function ErrorPage() {
     return (
-        <div>
-            <h1>Page not found!</h1>
-        </div>
+        <>
+            <GlobalStyle />
+            <Wrapper>
+                <h1>Page not found!</h1>
+            </Wrapper>
+        </>
     )
 }

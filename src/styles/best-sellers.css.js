@@ -13,9 +13,11 @@ export const BestSellers = styled.div`
     h1 {
         font-size: var(--fs-medium);
         font-weight: var(--fw-bold);
+        margin: 0 4rem;
     }
         
-    @media (max-width: 768px) {
+    @media (max-width: 980px) {
         margin: 0 auto;
+        text-align: center;
     }
 `

@@ -10,6 +10,11 @@ export const FooterContainer = styled.footer`
     margin: 0 auto;
     color: var(--color-black);
 
+    @media (max-width: 980px) { 
+        flex-direction: column;
+        text-align: center;
+    }
+
     form {
         display: flex;
         flex-direction: column;
