@@ -80,9 +80,9 @@ export const ContactStyledForm = styled.div`
 
     button {
         display: inline-block;
-        padding: .5rem 1.5rem;
+        padding: .75rem 1.5rem;
 
-        font-size: var(--fs-medium);
+        font-size: var(--fs-regular);
         font-weight: var(--fw-bold);
         color: var(--color-white);
         border: none;
