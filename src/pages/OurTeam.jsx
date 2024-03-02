@@ -1,26 +1,26 @@
 import { GlobalStyle } from "../styles/global.css";
-import { TeamContainer } from "../styles/our-team.css";
-import { Wrapper } from "../styles/wrapper.css";
+import { TeamContainer, TeamMember, Wrapper } from "../styles/our-team.css";
 import team from "../team";
 
 export default function OurTeam() {
     console.log(team);
     const teamMembers = team.map((member) => {
         return (
-            <div key={member.id}>
-                <h3>{member.name} - {member.role}</h3>
+            <TeamMember key={member.id}>
+                <img src={member.coverImg} alt={member.name} />
+                <h3>{member.name}</h3>
+                <h5>{member.role}</h5>
                 <p>{member.bio}</p>
-            </div>
+            </TeamMember>
         );
     });
-
 
     return (
         <>
             <GlobalStyle />
             <Wrapper>
+                <h1>Our Team</h1>
                 <TeamContainer>
-                    <h1>Our Team</h1>
                     {teamMembers}
                 </TeamContainer>
             </Wrapper>

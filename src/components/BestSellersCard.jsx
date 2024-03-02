@@ -1,7 +1,7 @@
-import { CardButton, CardContent, CardImage, CardQuantity, CardWrapper } from "../styles/card.css";
+import { CardButton, CardContent, CardImage, CardQuantity, CardWrapper } from "../styles/best-sellers.css";
 import test from "../assets/images/test.jpg";
 
-export default function Card() {
+export default function BestSellersCard() {
     return (
         <CardWrapper>
             <CardImage src={test} />

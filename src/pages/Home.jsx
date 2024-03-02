@@ -1,10 +1,9 @@
 import { Wrapper } from '../styles/wrapper.css'
-import { BestSellers } from '../styles/best-sellers.css'
+import { BestSellers, CardContainer } from '../styles/best-sellers.css'
 import { HeroButton, HeroContainer, HeroImage, HeroLeftCol, HeroRightCol } from '../styles/hero.css'
 import { GlobalStyle } from '../styles/global.css'
 import heroImg from '../assets/images/hero-img.png'
-import Card from '../components/Card'
-import { CardContainer } from '../styles/card.css'
+import BestSellersCard from '../components/BestSellersCard'
 import { ChooseUsContainer, ChooseUsLeftCol, ChooseUsRightCol, ChooseUsWrapper } from '../styles/choose-us.css'
 
 function Home() {
@@ -27,10 +26,10 @@ function Home() {
         <BestSellers>
           <h1>Best Sellers</h1>
           <CardContainer>
-            <Card />
-            <Card />
-            <Card />
-            <Card />
+            <BestSellersCard />
+            <BestSellersCard />
+            <BestSellersCard />
+            <BestSellersCard />
           </CardContainer>
         </BestSellers>
         <ChooseUsContainer>
