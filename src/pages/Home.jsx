@@ -5,6 +5,7 @@ import { GlobalStyle } from '../styles/global.css'
 import heroImg from '../assets/images/hero-img.png'
 import BestSellersCard from '../components/BestSellersCard'
 import { ChooseUsContainer, ChooseUsLeftCol, ChooseUsRightCol, ChooseUsWrapper } from '../styles/choose-us.css'
+import { Link } from 'react-router-dom'
 
 function Home() {
 
@@ -17,7 +18,9 @@ function Home() {
             <h2>Dunder Mifflin :</h2>
             <h1>Where <span>Every</span> Sheet</h1>
             <h1>Tells a Story!</h1>
-            <HeroButton>Shop Now</HeroButton>
+            <Link to="/products">
+              <HeroButton>Shop Now</HeroButton>
+            </Link>
           </HeroLeftCol>
           <HeroRightCol>
             <HeroImage src={heroImg} alt="hero" />

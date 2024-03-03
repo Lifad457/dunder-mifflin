@@ -1,5 +1,5 @@
 import { GlobalStyle } from "../styles/global.css";
-import { TeamContainer, TeamMember, Wrapper } from "../styles/our-team.css";
+import { TeamContainer, TeamMember, TeamMemberDesc, Wrapper } from "../styles/our-team.css";
 import team from "../team";
 
 export default function OurTeam() {
@@ -8,9 +8,11 @@ export default function OurTeam() {
         return (
             <TeamMember key={member.id}>
                 <img src={member.coverImg} alt={member.name} />
-                <h3>{member.name}</h3>
-                <h5>{member.role}</h5>
-                <p>{member.bio}</p>
+                <TeamMemberDesc>
+                    <h3>{member.name}</h3>
+                    <h5>{member.role}</h5>
+                    <p>{member.bio}</p>
+                </TeamMemberDesc>
             </TeamMember>
         );
     });
@@ -19,7 +21,6 @@ export default function OurTeam() {
         <>
             <GlobalStyle />
             <Wrapper>
-                <h1>Our Team</h1>
                 <TeamContainer>
                     {teamMembers}
                 </TeamContainer>

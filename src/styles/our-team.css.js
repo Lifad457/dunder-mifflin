@@ -7,16 +7,11 @@ export const Wrapper = styled.div`
     padding: 0 4rem;
     max-width: 90rem;
     margin: 0 auto;
-
-    h1 {
-        font-size: var(--fs-medium);
-        font-weight: var(--fw-bold);
-        padding: 0 4rem;
-    }
+    margin-top: 2rem;
 `
 export const TeamContainer = styled.div`
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(18.75rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
     gap: 3rem;
     padding: 2rem 0;
 `
@@ -26,6 +21,9 @@ export const TeamMember = styled.div`
     width: 18.75rem;
     min-height: 40rem;
     margin: 0 auto;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 0 1.6rem .2rem rgba(0, 0, 0, .5);
 
     img {
         width: 18.75rem;
@@ -33,10 +31,17 @@ export const TeamMember = styled.div`
         object-fit: cover;
         object-position: top;
     }
+`
+export const TeamMemberDesc = styled.div`
+    padding: .75rem;
     h3 {
-        margin-top: 10px;
+        font-size: var(--fs-medium);
+        font-weight: var(--fw-bold);
+        margin: .75rem 0;
     }
-    p {
-        margin-top: 10px;
+    h5 {
+        font-size: var(--fs-small);
+        font-weight: var(--fw-bold);
+        margin: .75rem 0;
     }
 `

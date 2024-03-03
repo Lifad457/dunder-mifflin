@@ -5,7 +5,9 @@ import { RiShoppingCart2Line } from "react-icons/ri";
 export default function Header() {
     return (
         <HeaderContainer>
-            <HeaderLogo />
+            <Link to="/">
+                <HeaderLogo />
+            </Link>
             <Nav>
                 <ul>
                     <li><Link to="">Home</Link></li>

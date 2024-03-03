@@ -54,24 +54,24 @@ export default [
     },
     {
         id: 7,
-        name: "Kevin Malone",
-        role: "Accountant",
-        bio: "Kevin's cheerful personality and love of snacks brighten up the accounting department. While he may not always be the most focused employee, his heart of gold and unwavering loyalty to his colleagues make him an essential part of the team.",
-        coverImg: KM,
-    },
-    {
-        id: 8,
         name: "Angela Martin",
         role: "Senior Accountant",
         bio: "Meet Angela, our meticulous senior accountant with a soft spot for felines. While she may come across as stern at times, Angela's attention to detail ensures that our finances are always in order. Just be sure to keep your desk clean—she's not a fan of clutter!",
         coverImg: AM,
     },
     {
-        id: 9,
+        id: 8,
         name: "Oscar Martinez",
         role: "Accountant",
         bio: "Oscar is the voice of reason in our accounting department. With his sharp intellect and dry wit, he keeps the team grounded amidst the chaos of office life. Whether it's balancing the books or offering sage advice, Oscar is always there when you need him.",
         coverImg: OM,
+    },
+    {
+        id: 9,
+        name: "Kevin Malone",
+        role: "Accountant",
+        bio: "Kevin's cheerful personality and love of snacks brighten up the accounting department. While he may not always be the most focused employee, his heart of gold and unwavering loyalty to his colleagues make him an essential part of the team.",
+        coverImg: KM,
     },
     {
         id: 10,

@@ -20,7 +20,7 @@ export default function Footer() {
             <section>
                 <h1>Subscription</h1>
                 <p>Subscribe your Email address<br/>for latest news & updates.</p>
-                <form action="">
+                <form>
                     <input type="email" placeholder="Enter your Email Adress" />
                     <button>Subscribe</button>
                 </form>

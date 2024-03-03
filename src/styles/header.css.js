@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import logo from "../assets/images/SvgLogo.jsx";
+import Logo from "../assets/images/SvgLogo.jsx";
 
 export const HeaderContainer = styled.header`
     display: flex;
@@ -14,7 +14,7 @@ export const HeaderContainer = styled.header`
         display: none;
     }
 `
-export const HeaderLogo = styled(logo)`
+export const HeaderLogo = styled(Logo)`
     width: 7rem;
     height: 7rem;
 `
