@@ -38,5 +38,7 @@ export const GlobalStyle = createGlobalStyle`
         line-height: 1.6;
         background-color: var(--color-one);
         min-width: 40rem;
+        min-height: 100vh;
+        min-height: 100dvh;
     }
 `

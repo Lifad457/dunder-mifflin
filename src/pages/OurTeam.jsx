@@ -3,7 +3,6 @@ import { TeamContainer, TeamMember, TeamMemberDesc, Wrapper } from "../styles/ou
 import team from "../team";
 
 export default function OurTeam() {
-    console.log(team);
     const teamMembers = team.map((member) => {
         return (
             <TeamMember key={member.id}>
