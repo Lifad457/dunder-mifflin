@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import Home from './pages/Home.jsx'
+import Home, {loader as bestSellersLoader} from './pages/Home.jsx'
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
 import Layout from './components/Layout.jsx'
 import Products, {loader as productsLoader} from './pages/Products.jsx'
@@ -12,11 +12,14 @@ import Populate from './components/Populate.jsx'
 
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path='/' element={<Layout />} >
-    <Route index element={<Home />} />
+    <Route 
+      index element={<Home />} 
+      loader={productsLoader}
+    />
     <Route 
       path='products' 
       element={<Products />} 
-      loader={productsLoader}
+      loader={bestSellersLoader}
     />
     <Route path='contact' element={<Contact />} />
     <Route path='our-team' element={<OurTeam />} />

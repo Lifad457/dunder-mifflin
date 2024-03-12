@@ -1,18 +1,35 @@
+import { Suspense } from 'react'
+import { Await, Link, defer, useLoaderData } from 'react-router-dom'
 import { Wrapper } from '../styles/wrapper.css'
 import { BestSellers, CardContainer } from '../styles/best-sellers.css'
 import { HeroButton, HeroContainer, HeroImage, HeroLeftCol, HeroRightCol } from '../styles/hero.css'
+import { ChooseUsContainer, ChooseUsLeftCol, ChooseUsRightCol, ChooseUsWrapper } from '../styles/choose-us.css'
 import { GlobalStyle } from '../styles/global.css'
 import heroImg from '../assets/images/hero-img.png'
 import BestSellersCard from '../components/BestSellersCard'
-import { ChooseUsContainer, ChooseUsLeftCol, ChooseUsRightCol, ChooseUsWrapper } from '../styles/choose-us.css'
-import { Link } from 'react-router-dom'
+import { getProducts } from '../api'
 
-function Home() {
+export default function Home() {
+  const dataPromise = useLoaderData()
+
+  function getBestSellers(products) {
+    const shuffled = products.sort(() => 0.5 - Math.random());
+
+    const bestSellers = shuffled.slice(0, 4).map(product => {
+      return <BestSellersCard key={product.id} product={product} />
+    })
+    return (
+      <>
+        {bestSellers}
+      </>
+    )
+  }
 
   return (
     <>
       <GlobalStyle />
       <Wrapper>
+
         <HeroContainer>
           <HeroLeftCol>
             <h2>Dunder Mifflin :</h2>
@@ -26,15 +43,18 @@ function Home() {
             <HeroImage src={heroImg} alt="hero" />
           </HeroRightCol>
         </HeroContainer>
+
         <BestSellers>
           <h1>Best Sellers</h1>
           <CardContainer>
-            <BestSellersCard />
-            <BestSellersCard />
-            <BestSellersCard />
-            <BestSellersCard />
+            <Suspense fallback={<h2>Loading ...</h2>}>
+              <Await resolve={dataPromise.products}>
+                {getBestSellers}
+              </Await>
+            </Suspense>
           </CardContainer>
         </BestSellers>
+
         <ChooseUsContainer>
           <ChooseUsLeftCol>
             <h3>Why Choose Us</h3>
@@ -56,9 +76,12 @@ function Home() {
             </ChooseUsWrapper>
           </ChooseUsRightCol>
         </ChooseUsContainer>
+
       </Wrapper>
     </>
   )
 }
 
-export default Home
+export function loader() {
+  return defer({products: getProducts()})
+}

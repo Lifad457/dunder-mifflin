@@ -4,11 +4,6 @@ import { getProducts } from "../api";
 import { GlobalStyle } from "../styles/global.css";
 import { Wrapper } from "../styles/wrapper.css";
 
-
-export function loader() {
-    return defer({products: getProducts()})
-}
-
 export default function Products() {
     const dataPromise = useLoaderData()
 
@@ -32,6 +27,7 @@ export default function Products() {
             </>
         )
     }
+    
     return (
         <>
             <GlobalStyle />
@@ -44,4 +40,8 @@ export default function Products() {
             </Wrapper>
         </>
     )
+}
+
+export function loader() {
+    return defer({products: getProducts()})
 }

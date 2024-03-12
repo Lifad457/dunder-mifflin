@@ -35,10 +35,11 @@ export const CardWrapper = styled.div`
     border-radius: 0.3rem;
 `
 export const CardImage = styled.img`
-    height: auto;
-    width: 100%;
+    max-width: 15rem;
+    max-height: 10rem;
     border-bottom: 1px solid var(--color-five);
     padding: 0 2rem;
+    object-fit: contain;
 `
 export const CardContent = styled.div`
     display: flex;
@@ -47,6 +48,11 @@ export const CardContent = styled.div`
     border-bottom: 1px solid var(--color-five);
     color: var(--color-four);
     font-size: var(--fs-small);
+
+    h3 {
+        font-size: var(--fs-small);
+        font-weight: bold;
+    }
 
     span {
         font-size: var(--fs-regular);
