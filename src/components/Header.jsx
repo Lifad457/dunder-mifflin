@@ -5,8 +5,9 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { IoCloseSharp } from "react-icons/io5";
 import { useState } from "react";
 
-export default function Header() {
+export default function Header({ cart }) {
     const [openMenu, setOpenMenu] = useState(false);
+    console.log(cart)
 
     return (
         <HeaderContainer>
