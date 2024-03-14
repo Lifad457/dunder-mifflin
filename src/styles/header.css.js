@@ -140,15 +140,27 @@ export const ModalBox = styled.div`
     }
 
     li {
-        margin: 0;
+        display: flex;
+        justify-content: space-between;
         padding: 1rem 2rem;
         font-size: var(--fs-regular);
         font-weight: var(--fw-medium);
-        text-align: left;
         
-        &:hover, &:focus {
-            background-color: var(--color-three);
-            color: var(--color-white);
+        span {
+            font-weight: var(--fw-bold);
         }
     }
+`
+export const CartButton = styled.button`
+    display: inline-block;
+    padding: .5rem 1.5rem;
+
+    font-size: var(--fs-regular);
+    color: var(--color-white);
+    border: none;
+    border-radius: .2rem;
+    background-color: var(--color-three);
+    box-shadow: 0 10px 15px 0 rgba(255,83,48,.35);
+    
+    cursor: pointer;
 `

@@ -9,7 +9,7 @@ export default function Layout() {
 
     return (
         <>
-            <Header cart={cart} />
+            <Header cart={cart} setCart={setCart} />
             <Outlet context={[cart, setCart]} />
             <Banner />
             <Footer />
