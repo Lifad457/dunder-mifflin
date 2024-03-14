@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Account, AccountButton, HeaderContainer, HeaderLogo, Nav } from "../styles/header.css";
+import { Account, AccountButton, CartLength, HeaderContainer, HeaderLogo, ModalBox, Nav } from "../styles/header.css";
 import { RiShoppingCart2Line } from "react-icons/ri";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoCloseSharp } from "react-icons/io5";
@@ -7,7 +7,12 @@ import { useState } from "react";
 
 export default function Header({ cart }) {
     const [openMenu, setOpenMenu] = useState(false);
+    const [openModal, setOpenModal] = useState(false);
     console.log(cart)
+
+    function toggleModal() {
+        setOpenModal(!openModal);
+    }
 
     return (
         <HeaderContainer>
@@ -28,8 +33,26 @@ export default function Header({ cart }) {
                 </ul>
             </Nav>
             <Account>
-                <AccountButton className="cart"><RiShoppingCart2Line /></AccountButton>
-                <AccountButton className="register">Sign in</AccountButton>
+                <AccountButton onClick={toggleModal}>
+                    <RiShoppingCart2Line />
+                    {cart.length > 0 && <CartLength>{cart.length}</CartLength>}
+                    { openModal &&
+                        <ModalBox>
+                            <h2>Your Cart</h2>
+                            {
+                                cart.length === 0 ? <ul><li>Your cart is empty</li></ul> :
+                                <ul>
+                                    {cart.map((item, index) => (
+                                        <li key={index}>
+                                            {`${item.product.dimension} ${item.product.weight}g ${item.product.type} x ${item.quantity}`}
+                                        </li>
+                                    ))}
+                                </ul>
+                            }
+                        </ModalBox>
+                    }
+                </AccountButton>
+                <AccountButton>Sign in</AccountButton>
             </Account>
         </HeaderContainer>
     )

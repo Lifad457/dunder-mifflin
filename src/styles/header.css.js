@@ -52,7 +52,7 @@ export const Nav = styled.div`
         top: 0;
         left: 0;
         height: 100vh;
-        width: 350px;
+        width: 22rem;
         background-color: rgba(255,255,255,.5);
         backdrop-filter: blur(10px);
         z-index: 98;
@@ -86,6 +86,7 @@ export const Account = styled.div`
 export const AccountButton = styled.button`
     display: inline-block;
     padding: .5rem 1.5rem;
+    position: relative;
 
     font-size: var(--fs-regular);
     color: var(--color-white);
@@ -95,4 +96,59 @@ export const AccountButton = styled.button`
     box-shadow: 0 10px 15px 0 rgba(255,83,48,.35);
     
     cursor: pointer;
+`
+export const CartLength = styled.div`
+    position: absolute;
+    top: -.5rem;
+    right: -.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background-color: var(--color-two);
+    color: var(--color-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--fs-small);
+    font-weight: var(--fw-medium);
+`
+export const ModalBox = styled.div`
+    position: absolute;
+    top: 5rem;
+    left: -12rem;
+    z-index: 100;
+    
+    display: block;
+    min-width: 25rem;
+    border-radius: .5rem;
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    color: var(--color-black);
+    
+    h2 {
+        padding: 1rem 2rem;
+        border-bottom: 1px solid var(--color-five);
+        text-align: left;
+        color: var(--color-three);
+    }
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        margin-top: 1rem;
+    }
+
+    li {
+        margin: 0;
+        padding: 1rem 2rem;
+        font-size: var(--fs-regular);
+        font-weight: var(--fw-medium);
+        text-align: left;
+        
+        &:hover, &:focus {
+            background-color: var(--color-three);
+            color: var(--color-white);
+        }
+    }
 `
