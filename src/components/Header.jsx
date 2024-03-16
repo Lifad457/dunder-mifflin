@@ -4,6 +4,7 @@ import { RiShoppingCart2Line } from "react-icons/ri";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoCloseSharp } from "react-icons/io5";
 import { useState } from "react";
+import CartItem from "./CartItem";
 
 export default function Header({ cart, setCart }) {
     const [openMenu, setOpenMenu] = useState(false);
@@ -48,8 +49,7 @@ export default function Header({ cart, setCart }) {
                                 <ul>
                                     {cart.map((item, index) => (
                                         <li key={index}>
-                                            <p>{`${item.product.dimension} ${item.product.weight}g ${item.product.type} x ${item.quantity}`}</p>
-                                            <span>{`${(parseFloat(item.product.price) * item.quantity).toFixed(2).toString()}€`}</span>
+                                            <CartItem item={item} cart={cart} setCart={setCart} />
                                         </li>
                                     ))}
                                     <li><CartButton onClick={checkOut}>Buy Now !</CartButton></li>

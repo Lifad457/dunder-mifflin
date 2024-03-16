@@ -115,15 +115,16 @@ export const CartLength = styled.div`
 export const ModalBox = styled.div`
     position: absolute;
     top: 5rem;
-    left: -12rem;
+    left: -20rem;
     z-index: 100;
     
     display: block;
-    min-width: 25rem;
     border-radius: .5rem;
     background-color: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(10px);
     color: var(--color-black);
+
+    cursor: default;
     
     h2 {
         padding: 1rem 2rem;
@@ -142,7 +143,7 @@ export const ModalBox = styled.div`
     li {
         display: flex;
         justify-content: space-between;
-        padding: 1rem 2rem;
+        padding: .4rem 2rem;
         font-size: var(--fs-regular);
         font-weight: var(--fw-medium);
         
@@ -151,9 +152,10 @@ export const ModalBox = styled.div`
         }
     }
 `
-export const CartButton = styled.button`
+export const CartButton = styled.div`
     display: inline-block;
-    padding: .5rem 1.5rem;
+    padding: .7rem 1.5rem;
+    margin: .8rem 0;
 
     font-size: var(--fs-regular);
     color: var(--color-white);
