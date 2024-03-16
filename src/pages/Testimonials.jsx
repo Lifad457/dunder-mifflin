@@ -18,7 +18,7 @@ export default function Testimonials() {
                     <p>-President Laura Roslin</p>
                 </RightContainer>
                 <LeftContainer>
-                    <LeftQuote left="63rem"><FaQuoteLeft /></LeftQuote>
+                    <LeftQuote><FaQuoteLeft /></LeftQuote>
                     <p>When you're out there, flying through the stars, the last thing you want to worry about is whether your paperwork will hold up. That's why I trust Dunder Mifflin. Their paper is sturdy, reliable, and perfect for scribbling down flight plans or leaving notes for my fellow pilots. Plus, their prices can't be beaten. Dunder Mifflin gets the job done, no frakkin' questions asked.</p>
                     <p>-Lieutenant Kara "Starbuck" Thrace</p>
                 </LeftContainer>

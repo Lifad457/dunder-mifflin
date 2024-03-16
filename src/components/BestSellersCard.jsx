@@ -11,7 +11,7 @@ export default function BestSellersCard({ product }) {
         import(
             `../assets/images/${product.image}.jpg`
         ).then((image) => setImage(image.default));
-    }, []);
+    }, [cart]);
 
     function handleIncrement() {
         setQuantity(quantity + 1);
