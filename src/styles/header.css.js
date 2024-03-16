@@ -53,7 +53,7 @@ export const Nav = styled.div`
         left: 0;
         height: 100vh;
         width: 22rem;
-        background-color: rgba(255,255,255,.5);
+        background-color: rgba(255,200,200,.2);
         backdrop-filter: blur(10px);
         z-index: 98;
         transform: ${({ $open }) => $open ? 'translateX(0)' : 'translateX(-100%)'};
@@ -87,75 +87,6 @@ export const AccountButton = styled.button`
     display: inline-block;
     padding: .5rem 1.5rem;
     position: relative;
-
-    font-size: var(--fs-regular);
-    color: var(--color-white);
-    border: none;
-    border-radius: .2rem;
-    background-color: var(--color-three);
-    box-shadow: 0 10px 15px 0 rgba(255,83,48,.35);
-    
-    cursor: pointer;
-`
-export const CartLength = styled.div`
-    position: absolute;
-    top: -.5rem;
-    right: -.5rem;
-    width: 1.5rem;
-    height: 1.5rem;
-    border-radius: 50%;
-    background-color: var(--color-two);
-    color: var(--color-white);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: var(--fs-small);
-    font-weight: var(--fw-medium);
-`
-export const ModalBox = styled.div`
-    position: absolute;
-    top: 5rem;
-    left: -20rem;
-    z-index: 100;
-    
-    display: block;
-    border-radius: .5rem;
-    background-color: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(10px);
-    color: var(--color-black);
-
-    cursor: default;
-    
-    h2 {
-        padding: 1rem 2rem;
-        border-bottom: 1px solid var(--color-five);
-        text-align: left;
-        color: var(--color-three);
-    }
-
-    ul {
-        display: flex;
-        flex-direction: column;
-        list-style: none;
-        margin-top: 1rem;
-    }
-
-    li {
-        display: flex;
-        justify-content: space-between;
-        padding: .4rem 2rem;
-        font-size: var(--fs-regular);
-        font-weight: var(--fw-medium);
-        
-        span {
-            font-weight: var(--fw-bold);
-        }
-    }
-`
-export const CartButton = styled.div`
-    display: inline-block;
-    padding: .7rem 1.5rem;
-    margin: .8rem 0;
 
     font-size: var(--fs-regular);
     color: var(--color-white);

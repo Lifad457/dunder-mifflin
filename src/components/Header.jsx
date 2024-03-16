@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
-import { Account, AccountButton, CartButton, CartLength, HeaderContainer, HeaderLogo, ModalBox, Nav } from "../styles/header.css";
+import { Account, AccountButton, HeaderContainer, HeaderLogo, Nav } from "../styles/header.css";
 import { RiShoppingCart2Line } from "react-icons/ri";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoCloseSharp } from "react-icons/io5";
 import { useState } from "react";
 import CartItem from "./CartItem";
+import { CartButton, CartButtonBuy, CartContainer, CartLength, ModalBox } from "../styles/cart-item.css";
 
 export default function Header({ cart, setCart }) {
     const [openMenu, setOpenMenu] = useState(false);
@@ -38,8 +39,8 @@ export default function Header({ cart, setCart }) {
                 </ul>
             </Nav>
             <Account>
-                <AccountButton onClick={toggleModal}>
-                    <RiShoppingCart2Line />
+                <CartContainer>
+                    <CartButton onClick={toggleModal}><RiShoppingCart2Line /></CartButton>
                     {cart.length > 0 && <CartLength>{cart.length}</CartLength>}
                     { openModal &&
                         <ModalBox>
@@ -52,12 +53,12 @@ export default function Header({ cart, setCart }) {
                                             <CartItem item={item} cart={cart} setCart={setCart} />
                                         </li>
                                     ))}
-                                    <li><CartButton onClick={checkOut}>Buy Now !</CartButton></li>
+                                    <li><CartButtonBuy onClick={checkOut}>Buy Now !</CartButtonBuy></li>
                                 </ul>
                             }
                         </ModalBox>
                     }
-                </AccountButton>
+                </CartContainer>
                 <AccountButton>Sign in</AccountButton>
             </Account>
         </HeaderContainer>
