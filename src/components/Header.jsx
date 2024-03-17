@@ -3,22 +3,36 @@ import { Account, AccountButton, HeaderContainer, HeaderLogo, Nav } from "../sty
 import { RiShoppingCart2Line } from "react-icons/ri";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoCloseSharp } from "react-icons/io5";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CartItem from "./CartItem";
 import { CartButton, CartButtonBuy, CartContainer, CartLength, ModalBox } from "../styles/cart-item.css";
 
 export default function Header({ cart, setCart }) {
     const [openMenu, setOpenMenu] = useState(false);
     const [openModal, setOpenModal] = useState(false);
-
+console.log(openModal);
     function toggleModal() {
         setOpenModal(!openModal);
     }
 
     function checkOut() {
         setOpenModal(false);
-        setCart([]);
     }
+
+    function handleClickOutside(event) {
+        if (event.key === "Escape" || (event.target.className !== "cart" && !event.target.closest(".cart"))) {
+            setOpenModal(false);
+        }
+    }
+
+    useEffect(() => {
+        document.addEventListener("mousedown", handleClickOutside);
+        document.addEventListener("keydown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+            document.removeEventListener("keydown", handleClickOutside);
+        };
+    }, []);
 
     return (
         <HeaderContainer>
@@ -39,7 +53,7 @@ export default function Header({ cart, setCart }) {
                 </ul>
             </Nav>
             <Account>
-                <CartContainer>
+                <CartContainer className="cart">
                     <CartButton onClick={toggleModal}><RiShoppingCart2Line /></CartButton>
                     {cart.length > 0 && <CartLength>{cart.length}</CartLength>}
                     { openModal &&
@@ -53,7 +67,11 @@ export default function Header({ cart, setCart }) {
                                             <CartItem item={item} cart={cart} setCart={setCart} />
                                         </li>
                                     ))}
-                                    <li><CartButtonBuy onClick={checkOut}>Buy Now !</CartButtonBuy></li>
+                                    <li>
+                                        <Link to="checkout">
+                                            <CartButtonBuy onClick={checkOut}>Proceed to checkout</CartButtonBuy>
+                                        </Link>
+                                    </li>
                                 </ul>
                             }
                         </ModalBox>

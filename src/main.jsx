@@ -9,6 +9,7 @@ import OurTeam from './pages/OurTeam.jsx'
 import Testimonials from './pages/Testimonials.jsx'
 import ErrorPage from './pages/ErrorPage.jsx'
 import Populate from './components/Populate.jsx'
+import Checkout from './pages/Checkout.jsx'
 
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path='/' element={<Layout />} >
@@ -24,9 +25,10 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route path='contact' element={<Contact />} />
     <Route path='our-team' element={<OurTeam />} />
     <Route path='testimonials' element={<Testimonials />} />
-    <Route path='populate' element={<Populate />} />
+    <Route path="checkout" element={<Checkout />} />
     
     <Route path="*" element={<ErrorPage />} />
+    <Route path='populate' element={<Populate />} />
   </Route>
 ))
 
