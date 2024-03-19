@@ -55,7 +55,6 @@ export const ContactStyledForm = styled.div`
         display: block;
         font-size: var(--fs-medium);
         margin-bottom: .75rem;
-        font-weight: 500;
     }
 
     input {
