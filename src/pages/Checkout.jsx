@@ -275,15 +275,12 @@ export default function Checkout() {
                             <input type="text" id="phone" placeholder="Phone *" required />
                         </form>
                         <h2>2. Payment</h2>
-                        <form>
-                            <label htmlFor="card-number">Card Number</label>
-                            <input type="text" id="card-number" required />
-                            <label htmlFor="expiry-date">Expiry Date</label>
-                            <input type="text" id="expiry-date" required />
-                            <label htmlFor="cvv">CVV</label>
-                            <input type="text" id="cvv" required />
-                            <button>Buy now !</button>
+                        <form className="card-info">
+                            <input type="text" id="card-number" required placeholder="Card Number *" />
+                            <input type="text" id="expiry-date" required placeholder="Exp. Date *" />
+                            <input type="text" id="cvv" required placeholder="CVV *" />
                         </form>
+                        <button>Buy now !</button>
                     </CheckoutLeftCol>
                     <CheckoutRightCol>
                         <h2>3. Order Summary</h2>

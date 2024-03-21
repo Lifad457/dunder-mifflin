@@ -26,6 +26,62 @@ export const CheckoutContainer = styled.div`
 export const CheckoutLeftCol = styled.div`
     form {
         display: grid;
+        max-width: 30rem;
+        grid-template-areas:
+            "email email phone"
+            "first-name first-name last-name"
+            "address address address"
+            "city city postal-code"
+            "country . .";
+
+        #email {
+            grid-area: email;
+        }
+        #first-name {
+            grid-area: first-name;
+        }
+        #last-name {
+            grid-area: last-name;
+        }
+        #address {
+            grid-area: address;
+        }
+        #city {
+            grid-area: city;
+        }
+        #postal-code {
+            grid-area: postal-code;
+        }
+        #country {
+            grid-area: country;
+        }
+        #phone {
+            grid-area: phone;
+        }
+        gap: 1rem;
+        margin-top: 2rem;
+
+        input {
+            width: 100%;
+            background: #EDEDED;
+            border: 1px solid #C7C7C7;
+            font-size: var(--fs-small);
+            padding: .75rem;
+            margin-bottom: 1rem;
+        }
+        select {
+            width: 107%;
+            background: #EDEDED;
+            border: 1px solid #C7C7C7;
+            font-size: var(--fs-small);
+            padding: .75rem;
+            margin-bottom: 2.5em;
+            color: #6F6F6F;
+        }
+    }
+
+    .card-info {
+        display: flex;
         gap: 1rem;
         margin-top: 2rem;
         input {
@@ -37,17 +93,16 @@ export const CheckoutLeftCol = styled.div`
             outline: none;
             margin-bottom: 2.5em;
         }
-        select {
-            width: 100%;
-            background: #EDEDED;
-            border: 1px solid #C7C7C7;
-            font-size: var(--fs-small);
-            padding: .75rem;
-            outline: none;
-            margin-bottom: 2.5em;
-            color: #6F6F6F;
+        #expiry-date {
+            min-width: 7rem;
+            max-width: 7rem;
+        }
+        #cvv {
+            min-width: 7rem;
+            max-width: 7rem;
         }
     }
+
     button {
         display: inline-block;
         padding: .5rem 1.5rem;
