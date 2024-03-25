@@ -39,7 +39,7 @@ export default function CartItem({ item, cart, setCart }) {
             <CartImage src={image} alt={item.product.type} />
             <CartContent>
                 <p>{`${item.product.dimension} ${item.product.weight}g ${item.product.type}`}</p>
-                <span>{`${(parseFloat(item.product.price) * item.quantity).toFixed(2).toString()}€`}</span>
+                <span>{`${(parseFloat(item.product.price) * item.quantity).toFixed(2)}€`}</span>
                 <CartQuantity>
                     <div onClick={handleDecrement}>-</div>
                     <div>{item.quantity}</div>

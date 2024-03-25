@@ -10,7 +10,7 @@ import { CartButton, CartButtonBuy, CartContainer, CartLength, ModalBox } from "
 export default function Header({ cart, setCart }) {
     const [openMenu, setOpenMenu] = useState(false);
     const [openModal, setOpenModal] = useState(false);
-console.log(openModal);
+
     function toggleModal() {
         setOpenModal(!openModal);
     }

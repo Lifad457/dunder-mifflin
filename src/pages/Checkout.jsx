@@ -1,8 +1,53 @@
+import { useState } from "react";
 import { CheckoutContainer, CheckoutLeftCol, CheckoutRightCol } from "../styles/checkout.css";
 import { GlobalStyle } from "../styles/global.css";
 import { Wrapper } from "../styles/wrapper.css";
+import { useOutletContext } from "react-router-dom";
+import { GiCycle } from "react-icons/gi";
+import { RiRefund2Line } from "react-icons/ri";
+import { BiSupport } from "react-icons/bi";
 
 export default function Checkout() {
+    const [cart, setCart] = useOutletContext();
+    const [cardNumber, setCardNumber] = useState("");
+    const [expiryDate, setExpiryDate] = useState("");
+    const [cvv, setCvv] = useState("");
+
+    function handleCard(e) {
+        if (e.target.className === "card-number") {
+            setCardNumber(prev => {
+                if (cardNumber.length > 18) {
+                    return prev;
+                }
+                if (cardNumber.length === 4 || cardNumber.length === 9 || cardNumber.length === 14) {
+                    return prev + " 9";
+                }
+                return prev + "9";
+            })
+        }
+        else if (e.target.className === "expiry-date") {
+            setExpiryDate(prev => {
+                if (expiryDate.length > 4) {
+                    return prev;
+                }
+                if (expiryDate.length === 2) {
+                    return prev + "/9";
+                }
+                return prev + "9";
+            })
+        }
+        else {
+            setCvv(prev => {
+                if (cvv.length > 2) {
+                    return prev;
+                }
+                return prev + "9";
+            })
+        }
+    }
+
+    const cartTotal = cart.reduce((acc, item) => acc + item.product.price * item.quantity, 0);
+
     return (
         <>
             <GlobalStyle />
@@ -11,13 +56,13 @@ export default function Checkout() {
                     <CheckoutLeftCol>
                         <h2>1. Billing & Shipping</h2>
                         <form>
-                            <input type="email" id="email" required placeholder="Email *" />
-                            <input type="text" id="first-name" placeholder="First Name *" required />
-                            <input type="text" id="last-name" placeholder="Last Name *" required />
-                            <input type="text" id="address" placeholder="Address *" required />
-                            <input type="text" id="postal-code" placeholder="Postal Code *" required />
-                            <input type="text" id="city" placeholder="City *" required />
-                            <select id="country" name="country">
+                            <input type="email" className="email" required placeholder="Email *" />
+                            <input type="text" className="first-name" placeholder="First Name *" required />
+                            <input type="text" className="last-name" placeholder="Last Name *" required />
+                            <input type="text" className="address" placeholder="Address *" required />
+                            <input type="text" className="postal-code" placeholder="Postal Code *" required />
+                            <input type="text" className="city" placeholder="City *" required />
+                            <select className="country" name="country">
                                 <option>Country *</option>
                                 <option value="AF">Afghanistan</option>
                                 <option value="AX">Aland Islands</option>
@@ -122,7 +167,7 @@ export default function Checkout() {
                                 <option value="HU">Hungary</option>
                                 <option value="IS">Iceland</option>
                                 <option value="IN">India</option>
-                                <option value="ID">Indonesia</option>
+                                <option value="className">Indonesia</option>
                                 <option value="IR">Iran, Islamic Republic of</option>
                                 <option value="IQ">Iraq</option>
                                 <option value="IE">Ireland</option>
@@ -272,23 +317,61 @@ export default function Checkout() {
                                 <option value="ZM">Zambia</option>
                                 <option value="ZW">Zimbabwe</option>
                             </select>
-                            <input type="text" id="phone" placeholder="Phone *" required />
+                            <input type="text" className="phone" placeholder="Phone *" required />
                         </form>
                         <h2>2. Payment</h2>
                         <form className="card-info">
-                            <input type="text" id="card-number" required placeholder="Card Number *" />
-                            <input type="text" id="expiry-date" required placeholder="Exp. Date *" />
-                            <input type="text" id="cvv" required placeholder="CVV *" />
+                            <input 
+                            type="text" 
+                            className="card-number" 
+                            required 
+                            placeholder="Card Number *" 
+                            onChange={handleCard} 
+                            value={cardNumber}/>
+                            <input 
+                            type="text" 
+                            className="expiry-date" 
+                            required 
+                            placeholder="Exp. Date *" 
+                            onChange={handleCard} 
+                            value={expiryDate}
+                            />
+                            <input 
+                            type="text" 
+                            className="cvv" 
+                            required 
+                            placeholder="CVV *" 
+                            onChange={handleCard} 
+                            value={cvv}
+                            />
                         </form>
                         <button>Buy now !</button>
                     </CheckoutLeftCol>
                     <CheckoutRightCol>
                         <h2>3. Order Summary</h2>
-                        <h3>2 items</h3>
-                        <h3>Total: 20€</h3>
+                        <h3>{`${cart.length} item${cart.length > 1 ? 's' : ''} :`}</h3>
+                        {
+                            cart.length === 0 ? <ul><li>Your cart is empty</li></ul> :
+                            <ul>
+                                {cart.map((item, index) => (
+                                    <li key={index}>
+                                        <p>
+                                            {`${item.product.dimension} ${item.product.weight}g ${item.product.type} * ${item.quantity}`}
+                                        </p>
+                                        <span>
+                                            {`${(item.product.price * item.quantity).toFixed(2)}€`} 
+                                        </span>
+                                    </li>
+                                ))}
+                            </ul>
+                        }
+                        <div className="total">
+                            <div><p>SubTotal:</p></div><div><span>{cartTotal.toFixed(2)}€</span></div>
+                            <div><p>Shipping:</p></div><div><span>5€</span></div>
+                            <div><p>Total:</p></div><div><span>{(cartTotal + 5).toFixed(2)}€</span></div>
+                        </div>
                     </CheckoutRightCol>
                 </CheckoutContainer>
             </Wrapper>
         </>
-    )
-}
+    )}

@@ -6,6 +6,7 @@ export default function BestSellersCard({ product }) {
     const [quantity, setQuantity] = useState(1);
     const [image, setImage] = useState("");
     const [cart, setCart] = useOutletContext();
+    const [status, setStatus] = useState("idle")
 
     useEffect(() => {
         import(
@@ -22,16 +23,21 @@ export default function BestSellersCard({ product }) {
     }
     
     function addToCart(product) {
-        setCart(prevCart => {
+        setStatus("submitting")
+        
+        const timer = setTimeout(() => {
+            setCart(prevCart => {
                 const productIndex = prevCart.findIndex(item => item.product.id === product.id);
                 if (productIndex !== -1) {
                     prevCart[productIndex].quantity += quantity
                     return [...prevCart]
                 }
                 return [...prevCart, { product: product, quantity: quantity }]
-            }
-        )
-        setQuantity(1)
+            })
+            setQuantity(1)
+            setStatus("idle")
+        }, 1000)
+        return () => clearTimeout(timer)
     }
 
     return (
@@ -47,7 +53,9 @@ export default function BestSellersCard({ product }) {
                 <div>{quantity}</div>
                 <div onClick={handleIncrement}>+</div>
             </CardQuantity>
-            <CardButton onClick={() => addToCart(product)}>ADD TO CART</CardButton>
+            <CardButton onClick={() => addToCart(product)} disabled={status==="submitting"}>
+                {status === "submitting" ? "ADDING TO CART" : "ADD TO CART" }
+            </CardButton>
         </CardWrapper>
     )
 }

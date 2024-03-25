@@ -14,7 +14,6 @@ export const CheckoutContainer = styled.div`
 
     h2 {
         font-size: var(--fs-medium);
-        margin: 2rem 0 1rem 0;
     }
 
     @media (max-width: 980px) {
@@ -26,7 +25,8 @@ export const CheckoutContainer = styled.div`
 export const CheckoutLeftCol = styled.div`
     form {
         display: grid;
-        max-width: 30rem;
+        max-width: 28rem;
+        min-width: 28rem;
         grid-template-areas:
             "email email phone"
             "first-name first-name last-name"
@@ -34,31 +34,31 @@ export const CheckoutLeftCol = styled.div`
             "city city postal-code"
             "country . .";
 
-        #email {
+        .email {
             grid-area: email;
         }
-        #first-name {
+        .first-name {
             grid-area: first-name;
         }
-        #last-name {
+        .last-name {
             grid-area: last-name;
         }
-        #address {
+        .address {
             grid-area: address;
         }
-        #city {
+        .city {
             grid-area: city;
         }
-        #postal-code {
+        .postal-code {
             grid-area: postal-code;
         }
-        #country {
+        .country {
             grid-area: country;
         }
-        #phone {
+        .phone {
             grid-area: phone;
         }
-        gap: 1rem;
+        gap: .5rem;
         margin-top: 2rem;
 
         input {
@@ -83,7 +83,6 @@ export const CheckoutLeftCol = styled.div`
     .card-info {
         display: flex;
         gap: 1rem;
-        margin-top: 2rem;
         input {
             width: 100%;
             background: #EDEDED;
@@ -93,13 +92,13 @@ export const CheckoutLeftCol = styled.div`
             outline: none;
             margin-bottom: 2.5em;
         }
-        #expiry-date {
-            min-width: 7rem;
-            max-width: 7rem;
+        .expiry-date {
+            min-width: 6.5rem;
+            max-width: 6.5rem;
         }
-        #cvv {
-            min-width: 7rem;
-            max-width: 7rem;
+        .cvv {
+            min-width: 6.5rem;
+            max-width: 6.5rem;
         }
     }
 
@@ -117,8 +116,42 @@ export const CheckoutLeftCol = styled.div`
     }
 `
 export const CheckoutRightCol = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
     h3 {
         font-size: var(--fs-regular);
         margin: 1rem 0;
+    }
+    p {
+        font-size: var(--fs-small);
+        font-weight: var(--fw-medium);
+        margin-bottom: 1rem;
+        text-align: left;
+    }
+    span {
+        font-size: var(--fs-regular);
+        font-weight: var(--fw-bold);
+    }
+    .total {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding: .5rem 1rem;
+        border-top: 1px solid var(--color-five);
+        border-bottom: 1px solid var(--color-five);
+        text-align: right;
+        align-items: baseline;
+    }
+    ul {
+        list-style: none;
+    }
+
+    li {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding: .5rem 1rem;
+        text-align: right;
+        align-items: baseline;
     }
 `
