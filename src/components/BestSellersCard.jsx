@@ -42,7 +42,7 @@ export default function BestSellersCard({ product }) {
 
     return (
         <CardWrapper>
-            <CardImage src={image} />
+            <CardImage src={image} alt={`${product.dimension} ${product.weight}g ${product.type}`}/>
             <CardContent>
                 <h3>{`${product.dimension} ${product.weight}g ${product.type}`}</h3>
                 <p>{`${product.quantity} sheets`}</p>

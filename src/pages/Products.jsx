@@ -3,7 +3,7 @@ import { Await, defer, useLoaderData } from "react-router-dom";
 import { getProducts } from "../api";
 import { GlobalStyle } from "../styles/global.css";
 import { Wrapper } from "../styles/wrapper.css";
-import { ProductsContainer } from "../styles/products.css";
+import { Product, ProductsWrapper, ProductsContainer } from "../styles/products.css";
 
 export default function Products() {
     const dataPromise = useLoaderData()
@@ -12,20 +12,18 @@ export default function Products() {
         const productElements = products.map(product =>
             {
             return (
-                <div key={product.id} >
-                    <h2>{product.name}</h2>
-                    <p>{product.description}</p>
-                    <p>${product.price}</p>
-                </div>
+                <Product key={product.id} >
+                    <h3>{`${product.dimension} ${product.weight}g ${product.type}`}</h3>
+                    <p>{`${product.quantity} sheets`}</p>
+                    <p><span>{`${product.price} €`}</span></p>
+                </Product>
             )}
         )
 
         return (
-            <>
-                <div>
-                    {productElements}
-                </div>
-            </>
+            <ProductsWrapper>
+                {productElements}
+            </ProductsWrapper>
         )
     }
     
