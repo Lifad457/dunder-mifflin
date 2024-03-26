@@ -17,6 +17,7 @@ export const CheckoutContainer = styled.div`
     }
 
     @media (max-width: 980px) {
+        display: flex;
         flex-direction: column;
         max-width: 100%;
         min-width: 100%;
@@ -101,19 +102,6 @@ export const CheckoutLeftCol = styled.div`
             max-width: 6.5rem;
         }
     }
-
-    button {
-        display: inline-block;
-        padding: .5rem 1.5rem;
-        font-size: var(--fs-regular);
-        font-weight: var(--fw-bold);
-        color: var(--color-white);
-        border: none;
-        border-radius: .2rem;
-        background-color: var(--color-three);
-        box-shadow: 0 10px 15px 0 rgba(255,83,48,.35);
-        cursor: pointer;
-    }
 `
 export const CheckoutRightCol = styled.div`
     display: flex;
@@ -154,4 +142,29 @@ export const CheckoutRightCol = styled.div`
         text-align: right;
         align-items: baseline;
     }
+`
+export const Guarantee = styled.div`
+    display: flex;
+    gap: 2rem;
+    margin: 1rem;
+    font-size: var(--fs-large);
+    text-align: center;
+
+    p {
+        font-size: var(--fs-small);
+        font-weight: var(--fw-medium);
+        text-align: center;
+    }
+`
+export const CheckoutButton = styled.div`
+    display: inline-block;
+    padding: .5rem 1.5rem;
+    width: fit-content;
+    font-size: var(--fs-regular);
+    font-weight: var(--fw-bold);
+    color: var(--color-white);
+    border-radius: .2rem;
+    background-color: var(--color-three);
+    box-shadow: 0 10px 15px 0 rgba(255,83,48,.35);
+    cursor: pointer;
 `

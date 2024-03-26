@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { CheckoutContainer, CheckoutLeftCol, CheckoutRightCol } from "../styles/checkout.css";
+import { CheckoutButton, CheckoutContainer, CheckoutLeftCol, CheckoutRightCol, Guarantee } from "../styles/checkout.css";
 import { GlobalStyle } from "../styles/global.css";
 import { Wrapper } from "../styles/wrapper.css";
 import { useOutletContext } from "react-router-dom";
@@ -12,6 +12,7 @@ export default function Checkout() {
     const [cardNumber, setCardNumber] = useState("");
     const [expiryDate, setExpiryDate] = useState("");
     const [cvv, setCvv] = useState("");
+    const [buyButton, setBuyButton] = useState("Buy now !");
 
     function handleCard(e) {
         if (e.target.className === "card-number") {
@@ -47,6 +48,15 @@ export default function Checkout() {
     }
 
     const cartTotal = cart.reduce((acc, item) => acc + item.product.price * item.quantity, 0);
+
+    function handleCheckout() {
+        setBuyButton("Processing ...");
+        const timer = setTimeout(() => {
+            setBuyButton("Buy now !");
+            setCart([]);
+        }, 1500);
+        return () => clearTimeout(timer)
+    }
 
     return (
         <>
@@ -345,31 +355,47 @@ export default function Checkout() {
                             value={cvv}
                             />
                         </form>
-                        <button>Buy now !</button>
                     </CheckoutLeftCol>
                     <CheckoutRightCol>
                         <h2>3. Order Summary</h2>
                         <h3>{`${cart.length} item${cart.length > 1 ? 's' : ''} :`}</h3>
                         {
-                            cart.length === 0 ? <ul><li>Your cart is empty</li></ul> :
-                            <ul>
-                                {cart.map((item, index) => (
-                                    <li key={index}>
-                                        <p>
-                                            {`${item.product.dimension} ${item.product.weight}g ${item.product.type} * ${item.quantity}`}
-                                        </p>
-                                        <span>
-                                            {`${(item.product.price * item.quantity).toFixed(2)}€`} 
-                                        </span>
-                                    </li>
-                                ))}
-                            </ul>
+                            cart.length === 0 ? <ul><li><h3>Your cart is empty</h3><br /></li></ul> :
+                            <>
+                                <ul>
+                                    {cart.map((item, index) => (
+                                        <li key={index}>
+                                            <p>
+                                                {`${item.product.dimension} ${item.product.weight}g ${item.product.type} * ${item.quantity}`}
+                                            </p>
+                                            <span>
+                                                {`${(item.product.price * item.quantity).toFixed(2)}€`} 
+                                            </span>
+                                        </li>
+                                    ))}
+                                </ul>
+                                <div className="total">
+                                    <div><p>SubTotal:</p></div><div><span>{cartTotal.toFixed(2)}€</span></div>
+                                    <div><p>Shipping:</p></div><div><span>5€</span></div>
+                                    <div><p>Total:</p></div><div><span>{(cartTotal + 5).toFixed(2)}€</span></div>
+                                </div>
+                            </>
                         }
-                        <div className="total">
-                            <div><p>SubTotal:</p></div><div><span>{cartTotal.toFixed(2)}€</span></div>
-                            <div><p>Shipping:</p></div><div><span>5€</span></div>
-                            <div><p>Total:</p></div><div><span>{(cartTotal + 5).toFixed(2)}€</span></div>
-                        </div>
+                        <Guarantee>
+                            <section>
+                                <RiRefund2Line />
+                                <p>100% money back guarantee</p>
+                            </section>
+                            <section>
+                                <GiCycle />
+                                <p>Free return within 30 days</p>
+                            </section>
+                            <section>
+                                <BiSupport />
+                                <p>Dedicated customer support</p>
+                            </section>
+                        </Guarantee>
+                        <CheckoutButton onClick={handleCheckout}>{buyButton}</CheckoutButton>
                     </CheckoutRightCol>
                 </CheckoutContainer>
             </Wrapper>
