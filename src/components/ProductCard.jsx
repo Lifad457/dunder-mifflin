@@ -1,8 +1,9 @@
-import { useOutletContext } from "react-router-dom";
-import { CardButton, CardContent, CardImage, CardQuantity, CardWrapper } from "../styles/best-sellers.css";
 import { useEffect, useState } from "react";
+import { useOutletContext } from "react-router-dom";
+import { CardButton, CardContent, CardImage, CardQuantity, Product } from "../styles/products.css";
 
-export default function BestSellersCard({ product }) {
+
+export default function ProductCard({ product }) {
     const [quantity, setQuantity] = useState(1);
     const [image, setImage] = useState("");
     const [cart, setCart] = useOutletContext();
@@ -41,12 +42,14 @@ export default function BestSellersCard({ product }) {
     }
 
     return (
-        <CardWrapper>
+        <Product>
             <CardImage src={image} alt={`${product.dimension} ${product.weight}g ${product.type}`}/>
             <CardContent>
-                <h3>{`${product.dimension} ${product.weight}g ${product.type}`}</h3>
-                <p>{`${product.quantity} sheets`}</p>
-                <p><span>{`${product.price} €`}</span></p>
+                <div>
+                    <h3>{`${product.dimension} ${product.weight}g ${product.type}`}</h3>
+                    <p>{`${product.quantity} sheets`}</p>
+                </div>
+                <span>{`${product.price} €`}</span>
             </CardContent>
             <CardQuantity>
                 <div onClick={handleDecrement}>-</div>
@@ -56,6 +59,6 @@ export default function BestSellersCard({ product }) {
             <CardButton onClick={() => addToCart(product)} disabled={status==="submitting"}>
                 {status === "submitting" ? "ADDING TO CART" : "ADD TO CART" }
             </CardButton>
-        </CardWrapper>
+        </Product>
     )
 }
