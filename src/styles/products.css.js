@@ -92,9 +92,38 @@ export const CardButton = styled.button`
 export const FiltersWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    padding: 1rem;
     border-radius: 1rem;
-    min-width: 10rem;
-    max-width: 10rem;
+    min-width: 11rem;
+    max-width: 11rem;
+`
+export const FilterButton = styled.button`
+    display: inline-block;
+    width: 5rem;
+    padding: .5rem 1rem;
+    font-size: var(--fs-small);
+    font-weight: bold;
+    color: var(--color-white);
+    border: none;
+    border-radius: .2rem;
+    background-color: var(--color-three);
+    box-shadow: 0 5px 15px 0 rgba(255,83,48,.35);
+    cursor: pointer;
+
+    &.active {
+        background-color: var(--color-four);
+        box-shadow: 0 5px 15px 0 rgba(255,83,48,.35);
+    }
+`
+export const ButtonList = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    border-radius: 1rem;
+    margin: 1rem;
+    h3 {
+        font-size: var(--fs-small);
+        font-weight: bold;
+        color: var(--color-four);
+    }
 `

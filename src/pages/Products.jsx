@@ -1,9 +1,9 @@
-import { Suspense, useEffect, useState } from "react";
-import { Await, defer, useLoaderData, useOutletContext } from "react-router-dom";
+import { Suspense, useState } from "react";
+import { Await, defer, useLoaderData } from "react-router-dom";
 import { getProducts } from "../api";
 import { GlobalStyle } from "../styles/global.css";
 import { Wrapper } from "../styles/wrapper.css";
-import { Product, ProductsWrapper, ProductsContainer, FiltersWrapper } from "../styles/products.css";
+import { ProductsWrapper, ProductsContainer, FiltersWrapper, FilterButton, ButtonList } from "../styles/products.css";
 import ProductCard from "../components/ProductCard";
 
 export default function Products() {
@@ -32,20 +32,44 @@ export default function Products() {
             <Wrapper>
                 <ProductsContainer>
                     <FiltersWrapper>
-                        <div>
-                            <h3>Filter by Type</h3>
-                            <button onClick={() => setSizeFilter("all")}>All</button>
-                            <button onClick={() => setSizeFilter("A3")}>A3</button>
-                            <button onClick={() => setSizeFilter("A4")}>A4</button>
-                            <button onClick={() => setSizeFilter("A5")}>A5</button>
-                        </div>
-                        <div>
-                            <h3>Filter by Weight</h3>
-                            <button onClick={() => setWeightFilter("all")}>All</button>
-                            <button onClick={() => setWeightFilter("80g")}>80g</button>
-                            <button onClick={() => setWeightFilter("90g")}>90g</button>
-                            <button onClick={() => setWeightFilter("120g")}>120g</button>
-                        </div>
+                        <ButtonList>
+                            <h3>Filter by Type :</h3>
+                            <FilterButton 
+                                className={sizeFilter === "all" ? "active" : "" } 
+                                onClick={() => setSizeFilter("all")}
+                            >All</FilterButton>
+                            <FilterButton 
+                                className={sizeFilter === "A3" ? "active" : "" }
+                                onClick={() => setSizeFilter("A3")}
+                            >A3</FilterButton>
+                            <FilterButton 
+                                className={sizeFilter === "A4" ? "active" : "" }
+                                onClick={() => setSizeFilter("A4")}
+                            >A4</FilterButton>
+                            <FilterButton 
+                                className={sizeFilter === "A5" ? "active" : "" }
+                                onClick={() => setSizeFilter("A5")}
+                            >A5</FilterButton>
+                        </ButtonList>
+                        <ButtonList>
+                            <h3>Filter by Weight :</h3>
+                            <FilterButton 
+                                className={weightFilter === "all" ? "active" : "" } 
+                                onClick={() => setWeightFilter("all")}
+                            >All</FilterButton>
+                            <FilterButton 
+                                className={weightFilter === "80g" ? "active" : "" }
+                                onClick={() => setWeightFilter("80g")}
+                            >80g</FilterButton>
+                            <FilterButton 
+                                className={weightFilter === "90g" ? "active" : "" }
+                                onClick={() => setWeightFilter("90g")}
+                            >90g</FilterButton>
+                            <FilterButton 
+                                className={weightFilter === "120g" ? "active" : "" }
+                                onClick={() => setWeightFilter("120g")}
+                            >120g</FilterButton>
+                        </ButtonList>
                     </FiltersWrapper>
                     <Suspense fallback={<h2>Loading ...</h2>}>
                         <Await resolve={dataPromise.products}>
