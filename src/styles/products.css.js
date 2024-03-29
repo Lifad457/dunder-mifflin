@@ -20,6 +20,7 @@ export const Product = styled.div`
     border: 1px solid var(--color-three);
     border-radius: 1rem;
     width: 20rem;
+    height: fit-content;
     box-shadow: 0 0 .5rem .2rem rgba(0, 0, 0, .2);
 `
 export const CardImage = styled.img`
