@@ -1,4 +1,4 @@
-import { Suspense, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { Await, defer, useLoaderData } from "react-router-dom";
 import { getProducts } from "../api";
 import { GlobalStyle } from "../styles/global.css";
@@ -9,11 +9,18 @@ import ProductCard from "../components/ProductCard";
 export default function Products() {
     const [sizeFilter, setSizeFilter] = useState("all")
     const [weightFilter, setWeightFilter] = useState("all")
-    const [typeFilter, setTypeFilter] = useState("all")
     const dataPromise = useLoaderData()
 
     function renderProductElements(products) {
-        const productElements = products.map(product => {
+        console.log(products)
+        console.log(sizeFilter, weightFilter) 
+        const displayedProducts = 
+            sizeFilter === "all" && weightFilter === "all" ? products : 
+                sizeFilter === "all" ? products.filter(product => product.weight === weightFilter) :
+                    weightFilter === "all" ? products.filter(product => product.dimension === sizeFilter) :
+                        products.filter(product => product.dimension === sizeFilter && product.weight === weightFilter)
+                
+        const productElements = displayedProducts.map(product => {
             return (
                 <ProductCard key={product.id} product={product} />
             )}
@@ -58,16 +65,16 @@ export default function Products() {
                                 onClick={() => setWeightFilter("all")}
                             >All</FilterButton>
                             <FilterButton 
-                                className={weightFilter === "80g" ? "active" : "" }
-                                onClick={() => setWeightFilter("80g")}
+                                className={weightFilter === "80" ? "active" : "" }
+                                onClick={() => setWeightFilter("80")}
                             >80g</FilterButton>
                             <FilterButton 
-                                className={weightFilter === "90g" ? "active" : "" }
-                                onClick={() => setWeightFilter("90g")}
+                                className={weightFilter === "90" ? "active" : "" }
+                                onClick={() => setWeightFilter("90")}
                             >90g</FilterButton>
                             <FilterButton 
-                                className={weightFilter === "120g" ? "active" : "" }
-                                onClick={() => setWeightFilter("120g")}
+                                className={weightFilter === "120" ? "active" : "" }
+                                onClick={() => setWeightFilter("120")}
                             >120g</FilterButton>
                         </ButtonList>
                     </FiltersWrapper>

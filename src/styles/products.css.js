@@ -1,14 +1,12 @@
 import styled from "styled-components";
 
 export const ProductsContainer = styled.div`
-    display: grid;
-    grid-template-columns: 1fr auto;
+    display: flex;
     margin: 2rem auto;
 `
 export const ProductsWrapper = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
     gap: 1rem;
     padding: 1rem;
     border-radius: 1rem;

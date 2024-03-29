@@ -5,6 +5,8 @@ import {
   getDocs,
   setDoc,
   doc,
+  query,
+  orderBy,
 } from "firebase/firestore/lite"
 
 const firebaseConfig = {
@@ -20,7 +22,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app)
-const productsCollectionRef = collection(db, "product")
+const productsCollectionRef = query(collection(db, "product"), orderBy("price", "dimension"))
 
 export async function getProducts() {
   const querySnapshot = await getDocs(productsCollectionRef)
@@ -40,7 +42,7 @@ export async function setNewProduct() {
       price: "19.99",
       quantity: "50",
       type: "yellow paper",
-      weight: "80g"
+      weight: "80"
       }
   await setDoc(dataRef, docData)
 }
